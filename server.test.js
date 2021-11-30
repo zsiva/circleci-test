@@ -12,3 +12,14 @@ it('gets the / endpoint', function() {
        });
   });
 })
+
+it('gets the /users endpoint', function() {
+  return new Promise(function (resolve) {
+    request.get('/users')
+       .then((response) => {
+          expect(response.status).toBe(200)
+          expect(response.text).toBe('Hello Users!')
+          resolve();
+       });
+  });
+})
